@@ -1,21 +1,14 @@
-name: first
+name: Python application
 
-on: push
+on: [push]
 
 jobs:
-    job1:
-        name: First Job
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v1
-          - name: Run a one-line script
-            run: echo Hello, world!
-    job2:
-        name: Second Job
-        runs-on: macos-latest
-        steps:
-          - uses: actions/checkout@v1
-          - name: Run a multi-line script
-            run: |
-              echo Add other actions to build,
-              echo test, and deploy your project.
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Python Syntax Checker
+      uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
